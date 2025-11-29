@@ -1,0 +1,137 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logoImage {
+    height: auto;
+    max-height: 40px;
+    width: auto;
+}
+
+/* NAV */
+
+.nav {
+    /* desktop by default */
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+}
+
+.nav a {
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.nav a:hover {
+    opacity: 1;
+}
+
+/* HAMBURGER BUTTON */
+
+.menuButton {
+    display: none; /* прихований на десктопі */
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.menuIcon {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 22px;
+    height: 18px;
+}
+
+.menuIcon span {
+    display: block;
+    height: 2px;
+    border-radius: 999px;
+    background-color: #111111;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Анімація на "х" */
+
+.menuIconOpen span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menuIconOpen span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuIconOpen span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .inner {
+        padding-inline: 12px;
+    }
+
+    /* показуємо кнопку, ховаємо десктопне меню */
+    .menuButton {
+        display: inline-flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid #e5e5e5;
+        display: none; /* по дефолту приховано */
+    }
+
+    .navOpen {
+        display: block;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 16px 12px;
+    }
+
+    .nav li {
+        padding: 6px 0;
+    }
+
+    .nav a {
+        font-size: 15px;
+        display: block;
+    }
+}

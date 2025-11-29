@@ -1,0 +1,72 @@
+/* app/servizi/page.module.css */
+
+.page {
+    min-height: 100vh;
+}
+
+.main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+}
+
+.section {
+    margin-bottom: 24px;
+}
+
+.sectionInner {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.intro {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.sectionInner p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.list {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.list li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding-inline: 16px;
+    }
+
+    .sectionInner {
+        padding-inline: 16px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .sectionTitle {
+        font-size: 18px;
+    }
+}
