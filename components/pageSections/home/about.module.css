@@ -1,0 +1,122 @@
+.aboutWrapper {
+    padding: clamp(32px, 6vw, 60px) 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); /* текст ширший */
+    gap: 32px;
+}
+
+.aboutBadges{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.aboutBadge{
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.06);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: #f3f4ff;
+}
+
+.aboutTextContent{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 20px;
+}
+
+.aboutHighlights{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.highlight{
+    padding: 5px 10px;
+    border-radius: 16px;
+    background: #f3f4ff;
+}
+
+.aboutList{
+    padding-left: 20px;
+}
+
+.aboutGallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.photoItem {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10);
+    aspect-ratio: 4 / 3;
+}
+
+.photoHero {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 10;
+}
+
+.photo {
+    object-fit: cover;
+}
+
+@media (max-width: 1185px) {
+    .aboutWrapper {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+.aboutStats {
+    margin: 14px 0 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 20px;
+}
+
+.statCard {
+    border-radius: 14px;
+    padding: 12px 12px 10px;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f4ff 100%);
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.statValue {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.2px;
+    color: #0f172a;
+}
+
+.statLabel {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #334155;
+}
+
+@media (max-width: 520px) {
+    .aboutStats {
+        grid-template-columns: 1fr;
+    }
+}
