@@ -26,7 +26,7 @@ export default function ChiSonoPage() {
                             Dal contatto diretto con lo sport è nata anche la mia passione per i massaggi. Ho
                             iniziato come massaggiatore sportivo, occupandomi soprattutto del recupero fisico
                             degli atleti, e con il tempo ho conseguito il diploma di Massoterapista presso
-                            Ecolife Milano. Tra le tecniche che utilizzo, un ruolo fondamentale lo ha il
+                            Ecolife Abbiategrasso. Tra le tecniche che utilizzo, un ruolo fondamentale lo ha il
                             massaggio decontratturante, ideale per sciogliere le tensioni muscolari e favorire
                             un recupero ottimale.
                         </p>

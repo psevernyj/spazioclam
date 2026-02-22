@@ -23,7 +23,7 @@ const HeroScreen = () => {
                         <div className={styles.heroActions}>
                             <a
                                 href="/contatti"
-                                className={`${stylesCommon.button} ${stylesCommon.buttonLg} ${stylesCommon.buttonPrimary}`}
+                                className={`${stylesCommon.button} ${stylesCommon.buttonLg} ${stylesCommon.buttonOutline}`}
                             >
                                 Prenota una seduta
                             </a>
@@ -38,7 +38,7 @@ const HeroScreen = () => {
 
 
                         <p className={styles.heroMeta}>
-                            📍 Milano — su appuntamento.
+                            📍 Abbiategrasso — su appuntamento.
                         </p>
                     </div>
                 </div>

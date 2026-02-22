@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export const metadata = {
     title: "Servizi | Massoterapia, Pancafit®, Linfodrenaggio | Max",
     description:
-        "Massoterapia, analisi posturale, linfodrenaggio, Pancafit® – Metodo Raggi®, coppettazione, Gua Sha e Moxa a Milano.",
+        "Massoterapia, analisi posturale, linfodrenaggio, Pancafit® – Metodo Raggi®, coppettazione, Gua Sha e Moxa a Abbiategrasso.",
 };
 
 export default function ServiziPage() {

@@ -54,7 +54,7 @@ const About = () => {
                             <li>Miglioramento di mobilità, forza e prevenzione infortuni</li>
                         </ul>
                         <p className={styles.heroMeta}>
-                            📍 Milano — su appuntamento · Percorsi personalizzati dopo analisi posturale.
+                            📍 Abbiategrasso — su appuntamento · Percorsi personalizzati dopo analisi posturale.
                         </p>
                     </div>
                     <a href="/chi-sono"

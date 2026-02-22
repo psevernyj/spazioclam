@@ -12,7 +12,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
     title: "Massoterapia & Personal Training | Max Voytsekhosvkyy",
     description:
-        "Massoterapia, riequilibrio posturale, linfodrenaggio, Pancafit® e Personal Training a Milano. Scopri i trattamenti di Max.",
+        "Massoterapia, riequilibrio posturale, linfodrenaggio, Pancafit® e Personal Training a Abbiategrasso. Scopri i trattamenti di Max.",
 };
 
 export default function RootLayout({
