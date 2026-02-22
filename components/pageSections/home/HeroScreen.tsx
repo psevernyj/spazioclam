@@ -49,7 +49,7 @@ const HeroScreen = () => {
                 <div className={styles.heroCard}>
                     <p className={styles.heroCardTitle}>Sport da combattimento</p>
                     <p className={styles.heroCardText}>
-                        Percorsi mirati per migliorare performance, forza, mobilità e prevenire infortuni negli
+                        Percorsi mirati per migliorare la performance, la forza, la mobilità e prevenire infortuni negli
                         sport da combattimento.
                     </p>
                     <ul className={styles.heroTagList}>
@@ -88,8 +88,8 @@ const HeroScreen = () => {
                 <div className={styles.heroCard}>
                     <p className={styles.heroCardTitle}>Postura & vita sedentaria</p>
                     <p className={styles.heroCardText}>
-                        Se lavori molte ore seduto o conduci una vita sedentaria e vuoi migliorare postura, mobilità
-                        e benessere.
+                        Se lavori molte ore seduto o conduci una vita sedentaria e vuoi migliorare la postura, la
+                        mobilità e il benessere.
                     </p>
                     <ul className={styles.heroTagList}>
                         <li>Schiena</li>

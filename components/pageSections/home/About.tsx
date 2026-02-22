@@ -40,18 +40,18 @@ const About = () => {
                     <div className={`${stylesCommon.paragraph} ${styles.aboutTextContent}`}>
                         <p>
                             Sono Max, massoterapista MCB e personal trainer. Aiuto persone con dolori, rigidità o
-                            post-infortuni a ritrovare
-                            mobilità, postura e benessere.
+                            post-infortuni a ritrovare la mobilità, la postura e il benessere.
                         </p>
                         <div className={styles.aboutHighlights}>
                             <div className={styles.highlight}>Postura</div>
                             <div className={styles.highlight}>Recupero</div>
+                            <div className={styles.highlight}>Benessere</div>
                             <div className={styles.highlight}>Performance</div>
                         </div>
                         <ul className={styles.aboutList}>
-                            <li>Dolori cervicali e lombari, tensioni muscolari</li>
+                            <li>Dolori cervicali, lombari e tensioni muscolari</li>
                             <li>Recupero dopo traumi e sovraccarichi da allenamento</li>
-                            <li>Miglioramento di mobilità, forza e prevenzione infortuni</li>
+                            <li>Miglioramento di mobilità, forza e prevenzione degli infortuni</li>
                         </ul>
                         <p className={styles.heroMeta}>
                             📍 Abbiategrasso — su appuntamento · Percorsi personalizzati dopo analisi posturale.
