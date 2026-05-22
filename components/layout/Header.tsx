@@ -52,7 +52,7 @@ const Header = () => {
               aria-label="Navigazione principale"
           >
             <ul>
-              <li><button onClick={() => scrollTo("hero")}>{t.nav.home}</button></li>
+              {/*<li><button onClick={() => scrollTo("hero")}>{t.nav.home}</button></li>*/}
               <li><button onClick={() => scrollTo("about")}>{t.nav.about}</button></li>
               <li><button onClick={() => scrollTo("process")}>{t.nav.process}</button></li>
               <li><button onClick={() => scrollTo("servizi")}>{t.nav.services}</button></li>

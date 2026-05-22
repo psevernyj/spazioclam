@@ -14,6 +14,9 @@ const WaIcon = () => (
     </svg>
 );
 
+const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
 const WHOM_FEATURED = [false, true, false, false];
 
 const HeroScreen = () => {
@@ -22,142 +25,145 @@ const HeroScreen = () => {
 
   return (
       <>
-      {/* ── HERO ── */}
-      <section className={styles.hero}>
-        <div className={`${common.container} ${styles.heroGrid}`}>
-          {/* LEFT */}
-          <div className={styles.left}>
-            <div className={styles.eyebrow}>
-              <span className={styles.dot} />
-              {h.eyebrow}
-            </div>
+        {/* ── HERO ── */}
+        <section className={styles.hero}>
+          <div className={`${common.container} ${styles.heroGrid}`}>
+            {/* LEFT */}
+            <div className={styles.left}>
+              <div className={styles.eyebrow}>
+                <span className={styles.dot} />
+                {h.eyebrow}
+              </div>
 
-            <h1 className={styles.h1}>
-              {h.h1Line1}<br />
-              <em>{h.h1Em}</em>{h.h1Rest}<br />
-              <span className={styles.accent}>{h.h1Accent}</span>
-            </h1>
+              <h1 className={styles.h1}>
+                {h.h1Line1}<br />
+                <em>{h.h1Em}</em>{h.h1Rest}<br />
+                <span className={styles.accent}>{h.h1Accent}</span>
+              </h1>
 
-            <p className={styles.lede}>{h.lede}</p>
+              <p className={styles.lede}>{h.lede}</p>
 
-            <div className={styles.ctas}>
-              <Link href="/contatti" className={`${common.button} ${common.buttonLg} ${common.buttonPrimary}`}>
-                {h.cta1}
-              </Link>
-              <Link href="/servizi" className={`${common.button} ${common.buttonLg} ${common.buttonOutline}`}>
-                {h.cta2}
-              </Link>
-            </div>
+              <div className={styles.ctas}>
+                <button
+                    onClick={() => scrollTo("contatti")}
+                    className={`${common.button} ${common.buttonLg} ${common.buttonPrimary}`}>
+                  {h.cta1}
+                </button>
+                <button
+                    onClick={() => scrollTo("servizi")}
+                    className={`${common.button} ${common.buttonLg} ${common.buttonOutline}`}>
+                  {h.cta2}
+                </button>
+              </div>
 
-            <div className={styles.meta}>
+              <div className={styles.meta}>
               <span className={styles.pip}>
                 <span className={styles.glyph}>📍</span>
                 {h.meta1}
               </span>
-              <span className={styles.pip}>
+                <span className={styles.pip}>
                 <span className={styles.glyph}>⏱</span>
-                {h.meta2}
+                  {h.meta2}
               </span>
-            </div>
-          </div>
-
-          {/* RIGHT — photo card */}
-          <div className={styles.photoWrap}>
-            <Image
-                src={maxPhoto}
-                alt="Max Voytsekhovskyy — massoterapista"
-                fill
-                className={styles.photo}
-                sizes="(max-width: 1100px) 100vw, 45vw"
-                priority
-            />
-
-            {/* Credential badge */}
-            <div className={`${styles.badge} ${styles.badgeTop}`}>
-              <div className={styles.avatar}>M</div>
-              <div className={styles.who}>
-                <strong>Max Voytsekhovskyy</strong>
-                <span>{h.badgeSub}</span>
               </div>
             </div>
 
-            {/* Experience badge */}
-            <div className={`${styles.badge} ${styles.badgeBot}`}>
-              <div className={styles.stat}>
-                10<span className={styles.plus}>+</span> {h.statUnit}
-              </div>
-              <div className={styles.statLabel}>{h.statLabel}</div>
-            </div>
-          </div>
-        </div>
+            {/* RIGHT — photo card */}
+            <div className={styles.photoWrap}>
+              <Image
+                  src={maxPhoto}
+                  alt="Max Voytsekhovskyy — massoterapista"
+                  fill
+                  className={styles.photo}
+                  sizes="(max-width: 1100px) 100vw, 45vw"
+                  priority
+              />
 
-        {/* ── TRUST STRIP ── */}
-        <div className={styles.trust}>
-          <div className={`${common.container} ${styles.trustInner}`}>
-            <div className={styles.trustLabel}>
-              {h.trustLabel1}<br />{h.trustLabel2}
-            </div>
-            <div className={styles.trustList}>
-              {h.trust.map((item) => (
-                  <div key={item.abbr} className={styles.trustItem}>
-                    <b>{item.abbr}</b>
-                    <span>{item.desc}</span>
-                  </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOR WHOM CARDS ── */}
-      <section className={styles.whom}>
-        <div className={`${common.container} ${styles.whomHead}`}>
-          <div>
-            <div className={`${styles.eyebrow} ${styles.eyebrowDark}`}>
-              <span className={styles.dot} /> {h.whomEyebrow}
-            </div>
-            <h2 className={`${common.pageTitle} ${styles.whomTitle}`}>
-              {h.whomTitle1}<br /><em>{h.whomTitleEm}</em>
-            </h2>
-          </div>
-          <p className={common.pageSubtitle}>{h.whomSubtitle}</p>
-        </div>
-
-        <div className={`${common.container} ${styles.whomGrid}`}>
-          {h.whomCards.map((card, i) => (
-              <div key={card.num} className={`${styles.whomCard} ${WHOM_FEATURED[i] ? styles.whomFeatured : ""}`}>
-                <div className={styles.whomNum}>{card.num}</div>
-                <h3 className={styles.whomCardTitle}>{card.title}</h3>
-                <p className={styles.whomCardText}>{card.text}</p>
-                <div className={styles.whomTags}>
-                  {card.tags.map((tag) => <span key={tag} className={styles.whomTag}>{tag}</span>)}
+              {/* Credential badge */}
+              <div className={`${styles.badge} ${styles.badgeTop}`}>
+                <div className={styles.avatar}>M</div>
+                <div className={styles.who}>
+                  <strong>Max Voytsekhovskyy</strong>
+                  <span>{h.badgeSub}</span>
                 </div>
               </div>
-          ))}
+
+              {/* Experience badge */}
+              <div className={`${styles.badge} ${styles.badgeBot}`}>
+                <div className={styles.stat}>
+                  10<span className={styles.plus}>+</span> {h.statUnit}
+                </div>
+                <div className={styles.statLabel}>{h.statLabel}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── TRUST STRIP ── */}
+          <div className={styles.trust}>
+            <div className={`${common.container} ${styles.trustInner}`}>
+              <div className={styles.trustLabel}>
+                {h.trustLabel1}<br />{h.trustLabel2}
+              </div>
+              <div className={styles.trustList}>
+                {h.trust.map((item) => (
+                    <div key={item.abbr} className={styles.trustItem}>
+                      <b>{item.abbr}</b>
+                      <span>{item.desc}</span>
+                    </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FOR WHOM CARDS ── */}
+        <section className={styles.whom}>
+          <div className={`${common.container} ${styles.whomHead}`}>
+            <div>
+              <div className={`${styles.eyebrow} ${styles.eyebrowDark}`}>
+                <span className={styles.dot} /> {h.whomEyebrow}
+              </div>
+              <h2 className={`${common.pageTitle} ${styles.whomTitle}`}>
+                {h.whomTitle1}<br /><em>{h.whomTitleEm}</em>
+              </h2>
+            </div>
+            <p className={common.pageSubtitle}>{h.whomSubtitle}</p>
+          </div>
+
+          <div className={`${common.container} ${styles.whomGrid}`}>
+            {h.whomCards.map((card, i) => (
+                <div key={card.num} className={`${styles.whomCard} ${WHOM_FEATURED[i] ? styles.whomFeatured : ""}`}>
+                  <div className={styles.whomNum}>{card.num}</div>
+                  <h3 className={styles.whomCardTitle}>{card.title}</h3>
+                  <p className={styles.whomCardText}>{card.text}</p>
+                  <div className={styles.whomTags}>
+                    {card.tags.map((tag) => <span key={tag} className={styles.whomTag}>{tag}</span>)}
+                  </div>
+                </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WA Banner — outside whom section */}
+        <div className={styles.waBannerWrap}>
+          <div className={`${common.container} ${styles.waBanner}`}>
+            <div className={styles.waIco}><WaIcon /></div>
+            <div className={styles.waCopy}>
+              <h4>{h.waBannerTitle}</h4>
+              <p>{h.waBannerText}</p>
+            </div>
+            <a
+                href="https://wa.me/393464195612"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.waBtn}
+            >
+              <WaIcon /> {h.waBannerBtn}
+            </a>
+          </div>
         </div>
-
-      </section>
-
-  {/* WA Banner — outside whom section */}
-  <div className={styles.waBannerWrap}>
-    <div className={`${common.container} ${styles.waBanner}`}>
-      <div className={styles.waIco}><WaIcon /></div>
-      <div className={styles.waCopy}>
-        <h4>{h.waBannerTitle}</h4>
-        <p>{h.waBannerText}</p>
-      </div>
-      <a
-          href="https://wa.me/393464195612"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.waBtn}
-      >
-        <WaIcon /> {h.waBannerBtn}
-      </a>
-    </div>
-  </div>
-</>
-);
+      </>
+  );
 };
 
 export default HeroScreen;
