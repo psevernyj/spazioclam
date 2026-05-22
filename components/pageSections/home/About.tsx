@@ -1,96 +1,81 @@
-import React from 'react';
-import stylesCommon from "@/app/page.module.css";
-import max1 from "../../../public/max-1.webp";
-import max2 from "../../../public/max-2.webp";
-import max3 from "../../../public/diploma.jpg";
-import max4 from "../../../public/max-4.webp";
+"use client";
+
+import React from "react";
 import Image from "next/image";
-import styles from "@/components/pageSections/home/about.module.css";
-import commonStyles from "@/app/page.module.css";
+import Link from "next/link";
+import styles from "./about.module.css";
+import common from "@/app/page.module.css";
+import max4   from "@/public/max-4.webp";
+import max3   from "@/public/diploma.jpg";
+import max2   from "@/public/max-2.webp";
+import { useLang } from "@/lib/i18n";
 
 const About = () => {
-    return (
-        <section className={`${stylesCommon.section} ${stylesCommon.container}`}>
-            <div className={styles.aboutWrapper}>
-                <div className={styles.aboutPhotos}>
-                    <div className={styles.aboutGallery}>
-                        <div className={`${styles.photoItem} ${styles.photoHero}`}>
-                            <Image src={max4} alt="Max - ritratto" fill className={styles.photo}
-                                   sizes="(max-width: 900px) 100vw, 45vw"/>
-                        </div>
-                        <div className={styles.photoItem}>
-                            <Image src={max3} alt="Sessione" fill className={styles.photo}
-                                   sizes="(max-width: 900px) 50vw, 22vw"/>
-                        </div>
-                        <div className={styles.photoItem}>
-                            <Image src={max2} alt="Trattamento" fill className={styles.photo}
-                                   sizes="(max-width: 900px) 50vw, 22vw"/>
-                        </div>
-                    </div>
-                </div>
+  const { t } = useLang();
+  const a = t.about;
 
-                <div className={styles.aboutText}>
-                    <div className={styles.aboutBadges}>
-                        <span className={styles.aboutBadge}>Massoterapista MCB</span>
-                        <span className={styles.aboutBadge}>Metodo Raggi® · Pancafit®</span>
-                        <span className={styles.aboutBadge}>Personal Trainer</span>
-                    </div>
-                    <h2 className={stylesCommon.pageTitle}>Chi sono</h2>
-
-                    <div className={`${stylesCommon.paragraph} ${styles.aboutTextContent}`}>
-                        <p>
-                            Sono Max, massoterapista MCB e personal trainer. Aiuto persone con dolori, rigidità o
-                            post-infortuni a ritrovare la mobilità, la postura e il benessere.
-                        </p>
-                        <div className={styles.aboutHighlights}>
-                            <div className={styles.highlight}>Postura</div>
-                            <div className={styles.highlight}>Recupero</div>
-                            <div className={styles.highlight}>Benessere</div>
-                            <div className={styles.highlight}>Performance</div>
-                        </div>
-                        <ul className={styles.aboutList}>
-                            <li>Dolori cervicali, lombari e tensioni muscolari</li>
-                            <li>Recupero dopo traumi e sovraccarichi da allenamento</li>
-                            <li>Miglioramento di mobilità, forza e prevenzione degli infortuni</li>
-                        </ul>
-                        <p className={styles.heroMeta}>
-                            📍 Abbiategrasso — su appuntamento · Percorsi personalizzati dopo analisi posturale.
-                        </p>
-                    </div>
-                    <a href="/chi-sono"
-                       className={`${commonStyles.button} ${commonStyles.buttonSm} ${commonStyles.buttonSecondary}`}>
-                        Leggi di più su di me →
-                    </a>
-
-                    <div className={styles.aboutStats} aria-label="Esperienza e formazione">
-                        <div className={styles.statCard}>
-                            <p className={styles.statValue}>~10 anni</p>
-                            <p className={styles.statLabel}>di esperienza nel massaggio sportivo</p>
-                        </div>
-
-                        <div className={styles.statCard}>
-                            <p className={styles.statValue}>5+ anni</p>
-                            <p className={styles.statLabel}>come massoterapista qualificato</p>
-                        </div>
-
-                        <div className={styles.statCard}>
-                            <p className={styles.statValue}>dal 2022</p>
-                            <p className={styles.statLabel}>Pancafit® · Metodo Raggi® nella pratica clinica</p>
-                        </div>
-
-                        <div className={styles.statCard}>
-                            <p className={styles.statValue}>dal 2010</p>
-                            <p className={styles.statLabel}>
-                                allenatore (arti marziali → calisthenics &amp; preparazione fisica) ·
-                                certificazione CFSC
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
+  return (
+    <section className={`${styles.about} ${common.section}`} id="about">
+      <div className={common.container}>
+        <div className={styles.inner}>
+          {/* PHOTOS */}
+          <div className={styles.photos}>
+            <div className={`${styles.ph} ${styles.phBig}`}>
+              <Image src={max4} alt="Max Voytsekhovskyy — ritratto" fill
+                className={styles.img} sizes="(max-width: 900px) 100vw, 42vw" />
             </div>
-        </section>
-    );
+            <div className={styles.ph}>
+              <Image src={max3} alt="Diploma MCB" fill
+                className={styles.img} sizes="(max-width: 900px) 50vw, 21vw" />
+            </div>
+            <div className={styles.ph}>
+              <Image src={max2} alt="Sessione di massoterapia" fill
+                className={styles.img} sizes="(max-width: 900px) 50vw, 21vw" />
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <div className={styles.text}>
+            <div className={styles.eyebrow}>
+              <span className={styles.dot} /> {a.eyebrow}
+            </div>
+
+            <p className={styles.pull}>
+              <span className={styles.qm}>"</span>{a.pull}{" "}
+              <em>{a.pullEm}</em>{a.pullRest}
+            </p>
+
+            <p className={common.paragraph}>{a.p1}</p>
+
+            <p className={common.paragraph} style={{ marginTop: 16 }}>
+              {a.p2.pre} <strong>{a.p2.b1}</strong>{a.p2.mid1}{" "}
+              <strong>{a.p2.b2}</strong> {a.p2.mid2}{" "}
+              <strong>{a.p2.b3}</strong> {a.p2.post}
+            </p>
+
+            <div className={styles.signature}>Max V.</div>
+            <div className={styles.signed}>Massoterapista MCB · Personal Trainer CFSC</div>
+
+            <Link href="/chi-sono"
+              className={`${common.button} ${common.buttonSm} ${common.buttonSecondary}`}
+              style={{ marginTop: 24 }}>
+              {a.link}
+            </Link>
+
+            {/* Stats */}
+            <div className={styles.stats}>
+              {a.stats.map((s) => (
+                <div key={s.num} className={styles.statCell}>
+                  <div className={styles.statNum}>{s.num}</div>
+                  <div className={styles.statLbl}>{s.lbl}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

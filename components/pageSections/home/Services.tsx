@@ -1,111 +1,96 @@
-import React from 'react';
-import stylesCommon from "@/app/page.module.css";
-import styles from "@/components/pageSections/home/services.module.css";
-import commonStyles from "@/app/page.module.css";
-import bg from "@/public/pancafit.webp";
-import guaSha from "@/public/gua-sha.webp";
-import limpho from "@/public/limpho.webp";
-import posturo from "@/public/posturalle.webp";
-import massage from "@/public/massage.webp";
-import Image from "next/image";
+"use client";
 
-const services = [
-    {
-        id: "massoterapia",
-        title: "Massoterapia",
-        description:
-            "Massaggi terapeutici per sciogliere tensioni, migliorare la mobilità e aiutarti a recuperare più velocemente.",
-        tags: ["Tensioni muscolari", "Dolori cronici", "Recupero"],
-        bg: massage,
-    },
-    {
-        id: "analisi-posturale",
-        title: "Analisi posturale iniziale",
-        description:
-            "Valutazione e analisi posturale per ricercare la vera causa del tuo disturbo.",
-        tags: ["Valutazione", "Prevenzione", "Postura"],
-        bg: posturo,
-    },
-    {
-        id: "linfodrenaggio",
-        title: "Linfodrenaggio",
-        description:
-            "Tecnica manuale delicata per drenare i liquidi, ridurre gonfiore e favorire il recupero dopo traumi o interventi.",
-        tags: ["Edemi", "Gonfiore", "Ritenzione"],
-        bg: limpho,
-    },
-    {
-        id: "pancafit",
-        title: "Pancafit® – Metodo Raggi®",
-        description:
-            "Riequilibrio posturale con allungamento globale va ad agire sulla parte fisica della persona grazie all’utilizzo di Pancafit®, un attrezzo che agisce sulle catene neuro-muscolo-fasciali.",
-        tags: ["Postura", "Cervicale", "Lombalgia"],
-        bg: bg,
-    },
-    {
-        id: "tecniche-di-supporto",
-        title: "Coppettazione, Gua Sha, Moxa",
-        description:
-            "Tecniche complementari per migliorare la circolazione, ridurre le rigidità e potenziare i risultati dei trattamenti.",
-        tags: ["Circolazione", "Rigenerazione", "Tensioni"],
-        bg: guaSha,
-    },
-    {
-        id: "test",
-        title: "Personal trainer",
-        description:
-            "Allenamento funzionale personalizzato, progettato per adattarsi davvero a te.\n" +
-            "Ogni esercizio prevede progressioni e regressioni, così da rispettare il tuo livello, le tue capacità fisiche.",
-        tags: ["Funzionale", "Personal training", "Corsi"],
-        bg: guaSha,
-    },
-];
+import React from "react";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
+import styles from "./services.module.css";
+import common from "@/app/page.module.css";
+import massage  from "@/public/massage.webp";
+import posturo  from "@/public/posturalle.webp";
+import limpho   from "@/public/limpho.webp";
+import pancafit from "@/public/pancafit.webp";
+import guaSha   from "@/public/gua-sha.webp";
+import { useLang } from "@/lib/i18n";
 
+const serviceImages: Record<string, StaticImageData> = {
+  massoterapia:    massage,
+  analisi:         posturo,
+  pancafit:        pancafit,
+  tecniche:        guaSha,
+  linfodrenaggio:  limpho,
+  personaltrainer: pancafit,
+};
+
+const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 const Services = () => {
-    return (
-        <section className={`${stylesCommon.container} ${styles.sectionAlt}`}>
+  const { t } = useLang();
+  const s = t.services;
 
-            <h2 className={stylesCommon.pageTitle}>Servizi</h2>
-            <p className={stylesCommon.pageSubtitle}>
-                Ogni percorso parte da un’analisi iniziale per individuare le cause — e solo dopo si
-                procede con trattamenti mirati.
-            </p>
-
-            <div className={styles.servicesGrid}>
-                {services.map((service) => (
-                    <article key={service.id} className={styles.serviceCard}>
-                        <div className={styles.titleWrapper}>
-                            <Image
-                                src={service.bg}
-                                alt={service.title}
-                                fill
-                                className={styles.titleImage}
-                            />
-                            <div className={styles.titleOverlay}/>
-                            <h3 className={styles.serviceTitle}>{service.title}</h3>
-                        </div>
-                        <div className={styles.serviceDescription}>
-                            <p className={stylesCommon.paragraph}>{service.description}</p>
-
-                            <ul className={styles.serviceTagList}>
-                                {service.tags.map((tag) => (
-                                    <li key={tag} className={styles.serviceTag}>
-                                        {tag}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </article>
-                ))}
+  return (
+      <section className={`${styles.services} ${common.section}`} id="servizi">
+        <div className={common.container}>
+          {/* Head */}
+          <div className={styles.head}>
+            <div>
+              <div className={styles.eyebrow}><span className={styles.dot} /> {s.eyebrow}</div>
+              <h2 className={`${common.pageTitle} ${styles.title}`}>
+                {s.title1} <em>{s.titleEm}</em><br />
+                {s.title2}
+              </h2>
             </div>
+            <p className={common.pageSubtitle}>{s.subtitle}</p>
+          </div>
 
-            <a href="/servizi"
-               className={`${commonStyles.button} ${commonStyles.buttonSm} ${commonStyles.buttonSecondary}`}>
-                Scopri tutti i servizi →
-            </a>
-        </section>
-    );
+          {/* Grid */}
+          <div className={styles.grid}>
+            {s.items.map((svc) => (
+                <article key={svc.id} className={`${styles.card} ${styles[`card-${svc.size}`]}`}>
+                  <div className={styles.cardImg}>
+                    <Image src={serviceImages[svc.id]} alt={svc.title} fill
+                           className={styles.img}
+                           sizes="(max-width: 768px) 100vw, 50vw" />
+                    <span className={styles.index}>{svc.index}</span>
+                  </div>
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{svc.title}</h3>
+                    <p className={styles.cardDesc}>{svc.desc}</p>
+                    <div className={styles.tags}>
+                      {svc.tags.map((tag) => <span key={tag} className={styles.tag}>{tag}</span>)}
+                    </div>
+                  </div>
+                </article>
+            ))}
+
+            {/* CTA card */}
+            <article className={`${styles.card} ${styles["card-xl"]} ${styles.cardCta}`}>
+              <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>{s.ctaTitle}</h3>
+                <p className={styles.cardDesc}>{s.ctaDesc}</p>
+                <div className={styles.tags}>
+                  <button
+                      onClick={() => scrollTo("contatti")}
+                      className={`${common.button} ${common.buttonMd} ${common.buttonPrimary}`}>
+                    {s.ctaBtn}
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          {/* Footer note */}
+          <div className={styles.foot}>
+            <p className={styles.note}>{s.footNote}</p>
+            <button
+                onClick={() => scrollTo("servizi")}
+                className={`${common.button} ${common.buttonMd} ${common.buttonOutline}`}>
+              {s.footLink}
+            </button>
+          </div>
+        </div>
+      </section>
+  );
 };
 
 export default Services;
