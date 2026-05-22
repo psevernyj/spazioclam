@@ -178,7 +178,9 @@
 
   .menuButton { display: inline-flex; }
 
-  .right { display: none; }
+  .right { gap: 8px; }
+
+  .cta { display: none; }
 
   .nav {
     position: absolute;
