@@ -150,7 +150,13 @@ const translations = {
       subtitle: "Non hai trovato risposta? Scrivimi su WhatsApp, rispondo io direttamente.",
       items: [
         { q: "Serve una prescrizione medica per prenotare?", a: "No, non è necessaria. Prima di ogni percorso viene comunque fatta un'analisi posturale iniziale per capire la situazione e scegliere il trattamento più adatto.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
-        { q: "Come si svolge la prima seduta?", a: "Si parte da un'analisi posturale e un breve colloquio sui tuoi obiettivi o dolori, poi si sceglie il trattamento più adatto — massoterapia, Pancafit®, o un percorso di allenamento.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
+        { q: "Quanto dura la prima seduta?", a: "La prima seduta dura circa 1 ora e 20 minuti. Comprende un'anamnesi iniziale, i test necessari, il trattamento e un momento finale dedicato a strutturare insieme la strategia e il percorso ideale, in base alle tue esigenze e agli obiettivi che vogliamo raggiungere.", cta: null as { title: string; text: string; btn: string } | null, meta: [
+          { icon: "⏱️", text: "Circa 1h 20min" },
+          { icon: "📋", text: "Anamnesi iniziale" },
+          { icon: "🧪", text: "Test necessari" },
+          { icon: "💆", text: "Trattamento" },
+          { icon: "🎯", text: "Strategia e percorso" },
+        ] as { icon: string; text: string }[] | null },
         { q: "Quante sedute servono per vedere dei risultati?", a: "Dipende dalla situazione di partenza e dall'obiettivo. Alcune persone notano beneficio già dalle prime sedute, altre richiedono un percorso più lungo — te ne parlo onestamente dopo la prima valutazione.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
         { q: "Quanto costa una seduta?", a: "Il costo varia in base al tipo di trattamento e al percorso concordato.", cta: { title: "Richiedi un preventivo", text: "Raccontami il trattamento che ti interessa: ti rispondo con una stima personalizzata entro poche ore.", btn: "Scrivimi su WhatsApp" } as { title: string; text: string; btn: string } | null , meta: null as { icon: string; text: string }[] | null },
         { q: "Cosa devo indossare per la seduta?", a: "Per la massoterapia e le tecniche complementari è sufficiente dell'intimo comodo; per le sedute di allenamento è consigliato abbigliamento sportivo.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
@@ -309,7 +315,13 @@ const translations = {
       subtitle: "Can't find an answer? Message me on WhatsApp, I'll reply personally.",
       items: [
         { q: "Do I need a doctor's referral to book?", a: "No, it's not required. Every programme still starts with an initial postural analysis to understand your situation and choose the right treatment.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
-        { q: "What happens in the first session?", a: "We start with a postural analysis and a short chat about your goals or pain points, then choose the most suitable treatment — massage therapy, Pancafit®, or a training programme.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
+        { q: "How long does the first session last?", a: "The first session lasts about 1 hour and 20 minutes. It includes an initial assessment, the necessary tests, the treatment itself, and a final part dedicated to building your strategy and ideal programme together, based on your needs and goals.", cta: null as { title: string; text: string; btn: string } | null, meta: [
+          { icon: "⏱️", text: "About 1h 20min" },
+          { icon: "📋", text: "Initial assessment" },
+          { icon: "🧪", text: "Necessary tests" },
+          { icon: "💆", text: "Treatment" },
+          { icon: "🎯", text: "Strategy & programme" },
+        ] as { icon: string; text: string }[] | null },
         { q: "How many sessions do I need to see results?", a: "It depends on your starting point and goal. Some people notice benefits from the first sessions, others need a longer programme — I'll give you an honest answer after the first assessment.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
         { q: "How much does a session cost?", a: "The cost varies depending on the treatment and the agreed programme.", cta: { title: "Get a personalised quote", text: "Tell me which treatment you're interested in and I'll reply with an estimate within a few hours.", btn: "Message me on WhatsApp" } as { title: string; text: string; btn: string } | null , meta: null as { icon: string; text: string }[] | null },
         { q: "What should I wear for the session?", a: "Comfortable underwear is enough for massage therapy and complementary techniques; sportswear is recommended for training sessions.", cta: null as { title: string; text: string; btn: string } | null, meta: null as { icon: string; text: string }[] | null },
