@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
 import styles from "./services.module.css";
 import common from "@/app/page.module.css";
 import massage  from "@/public/massage.webp";
@@ -10,6 +9,7 @@ import posturo  from "@/public/posturalle.webp";
 import limpho   from "@/public/limpho.webp";
 import pancafit from "@/public/pancafit.webp";
 import guaSha   from "@/public/gua-sha.webp";
+import personalTr   from "@/public/personal-training1.webp";
 import { useLang } from "@/lib/i18n";
 
 const serviceImages: Record<string, StaticImageData> = {
@@ -18,7 +18,7 @@ const serviceImages: Record<string, StaticImageData> = {
   pancafit:        pancafit,
   tecniche:        guaSha,
   linfodrenaggio:  limpho,
-  personaltrainer: pancafit,
+  personaltrainer: personalTr,
 };
 
 const scrollTo = (id: string) =>
@@ -68,6 +68,9 @@ const Services = () => {
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{s.ctaTitle}</h3>
                 <p className={styles.cardDesc}>{s.ctaDesc}</p>
+                <p className={styles.ctaNote}>
+                  {s.ctaNote} <span className={styles.ctaNoteHi}>{s.ctaNoteHi}</span>
+                </p>
                 <div className={styles.tags}>
                   <button
                       onClick={() => scrollTo("contatti")}
@@ -77,16 +80,6 @@ const Services = () => {
                 </div>
               </div>
             </article>
-          </div>
-
-          {/* Footer note */}
-          <div className={styles.foot}>
-            <p className={styles.note}>{s.footNote}</p>
-            <button
-                onClick={() => scrollTo("servizi")}
-                className={`${common.button} ${common.buttonMd} ${common.buttonOutline}`}>
-              {s.footLink}
-            </button>
           </div>
         </div>
       </section>

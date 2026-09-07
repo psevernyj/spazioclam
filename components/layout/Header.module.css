@@ -67,11 +67,13 @@
 
 .nav a,
 .nav button {
-  font-size: 14px;
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
   font-family: var(--sans);
   color: var(--text);
   text-decoration: none;
-  opacity: 0.72;
+  opacity: 0.85;
   transition: opacity 0.15s ease;
   padding: 4px 0;
   background: none;
@@ -79,8 +81,23 @@
   cursor: pointer;
 }
 
+.nav a::after,
+.nav button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--orange);
+  transition: right 0.2s ease;
+}
+
 .nav a:hover,
 .nav button:hover { opacity: 1; }
+
+.nav a:hover::after,
+.nav button:hover::after { right: 0; }
 
 /* ---- Right side ---- */
 .right {

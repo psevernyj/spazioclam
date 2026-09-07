@@ -31,7 +31,7 @@
 .photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 300px 200px;
+  grid-template-rows: 300px 200px 200px;
   gap: 12px;
 }
 
@@ -136,7 +136,7 @@
 
 @media (max-width: 640px) {
   .photos {
-    grid-template-rows: 220px 160px;
+    grid-template-rows: 220px 160px 160px;
   }
   .stats {
     grid-template-columns: 1fr 1fr;

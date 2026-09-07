@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./hero.module.css";
 import common from "@/app/page.module.css";
 import maxPhoto from "@/public/max-1.webp";
@@ -18,6 +17,13 @@ const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 const WHOM_FEATURED = [false, true, false, false];
+
+const withSmallReg = (text: string) =>
+    text.split("®").map((part, i, arr) =>
+        i < arr.length - 1
+            ? <React.Fragment key={i}>{part}<sup className={styles.regMark}>®</sup></React.Fragment>
+            : <React.Fragment key={i}>{part}</React.Fragment>
+    );
 
 const HeroScreen = () => {
   const { t } = useLang();
@@ -107,8 +113,8 @@ const HeroScreen = () => {
               <div className={styles.trustList}>
                 {h.trust.map((item) => (
                     <div key={item.abbr} className={styles.trustItem}>
-                      <b>{item.abbr}</b>
-                      <span>{item.desc}</span>
+                      <b>{withSmallReg(item.abbr)}</b>
+                      <span>{withSmallReg(item.desc)}</span>
                     </div>
                 ))}
               </div>

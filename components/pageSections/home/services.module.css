@@ -139,19 +139,23 @@
 .cardCta .cardTitle { color: #fff; }
 .cardCta .cardDesc  { color: rgba(255, 255, 255, 0.7); }
 
-/* Footer */
-.foot {
-  margin-top: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+.ctaNote {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #fff;
+  margin: 4px 0 0;
 }
-.note {
-  color: var(--muted);
-  font-size: 14px;
-  max-width: 56ch;
+
+.ctaNoteHi {
+  color: var(--orange);
+  background-image: linear-gradient(rgba(227, 150, 66, 0.3), rgba(227, 150, 66, 0.3));
+  background-repeat: no-repeat;
+  background-size: 100% 38%;
+  background-position: 0 88%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* Responsive */

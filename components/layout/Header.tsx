@@ -15,7 +15,7 @@ const WaIcon = () => (
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { lang, setLang, t } = useLang();
+  const { lang, t } = useLang();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu  = () => setIsMenuOpen(false);
@@ -31,7 +31,7 @@ const Header = () => {
         <div className={styles.inner}>
 
           {/* BRAND */}
-          <Link href="/" className={styles.brand} onClick={closeMenu}>
+          <Link href={lang === "en" ? "/en" : "/"} className={styles.brand} onClick={closeMenu}>
             <Image
                 src={logo}
                 alt="Max Voytsekhovskyy"
@@ -64,18 +64,20 @@ const Header = () => {
           <div className={styles.right}>
             {/* Language switcher */}
             <div className={styles.langSwitch} aria-label="Seleziona lingua">
-              <button
+              <a
+                  href="/"
+                  onClick={closeMenu}
                   className={`${styles.langBtn} ${lang === "it" ? styles.langActive : ""}`}
-                  onClick={() => setLang("it")}
               >
                 IT
-              </button>
-              <button
+              </a>
+              <a
+                  href="/en"
+                  onClick={closeMenu}
                   className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`}
-                  onClick={() => setLang("en")}
               >
                 EN
-              </button>
+              </a>
             </div>
 
             {/* CTA */}
