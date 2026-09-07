@@ -52,6 +52,7 @@ const Services = () => {
                            className={styles.img}
                            sizes="(max-width: 768px) 100vw, 50vw" />
                     <span className={styles.index}>{svc.index}</span>
+                    {svc.badge && <span className={styles.badge}>{svc.badge}</span>}
                   </div>
                   <div className={styles.cardBody}>
                     <h3 className={styles.cardTitle}>{svc.title}</h3>

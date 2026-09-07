@@ -56,6 +56,7 @@ const Header = () => {
               <li><button onClick={() => scrollTo("about")}>{t.nav.about}</button></li>
               <li><button onClick={() => scrollTo("process")}>{t.nav.process}</button></li>
               <li><button onClick={() => scrollTo("servizi")}>{t.nav.services}</button></li>
+              <li><button onClick={() => scrollTo("faq")}>{t.nav.faq}</button></li>
               <li><button onClick={() => scrollTo("contatti")}>{t.nav.contacts}</button></li>
             </ul>
           </nav>

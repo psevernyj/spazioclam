@@ -7,6 +7,7 @@ import Process     from "@/components/pageSections/home/Process";
 import Services    from "@/components/pageSections/home/Services";
 import Testimonials from "@/components/pageSections/home/Testimonials";
 import Gallery     from "@/components/pageSections/home/Gallery";
+import FAQ         from "@/components/pageSections/home/FAQ";
 import Contacts    from "@/components/pageSections/home/Contacts";
 
 const TITLE = "Massoterapia & Personal Training | Max Voytsekhovskyy";
@@ -44,6 +45,7 @@ export default function HomePage() {
         <Services />
         <Testimonials />
         <Gallery />
+        <FAQ />
         <Contacts />
       </main>
     </div>
