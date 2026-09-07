@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import HomePage from "../page";
 
-const TITLE = "Massage Therapy & Personal Training | Max Voytsekhovskyy";
+const TITLE = "Масотерапія та персональний тренінг | Макс Войцеховський";
 const DESCRIPTION =
-    "Massage therapy, postural rebalancing, lymphatic drainage, Pancafit® and Personal Training in Abbiategrasso. Discover Max's treatments.";
+    "Масотерапія, постуральний баланс, лімфодренаж, Pancafit® та персональний тренінг в Аббьятеграссо. Дізнайся більше про процедури Макса.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: {
-    canonical: "/en",
+    canonical: "/uk",
     languages: { it: "/", en: "/en", uk: "/uk", "x-default": "/" },
   },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "/en",
-    locale: "en_US",
+    url: "/uk",
+    locale: "uk_UA",
     images: ["/max-1.webp"],
   },
   twitter: {
@@ -26,6 +26,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EnHomePage() {
+export default function UkHomePage() {
   return <HomePage />;
 }

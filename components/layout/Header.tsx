@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import logo from "@/public/main-logo.webp";
-import { useLang } from "@/lib/i18n";
+import { useLang, type Lang } from "@/lib/i18n";
 
 const WaIcon = () => (
     <svg viewBox="0 0 24 24" fill="currentColor" width={16} height={16} aria-hidden>
@@ -13,12 +12,48 @@ const WaIcon = () => (
     </svg>
 );
 
+const ChevronIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" width={13} height={13} aria-hidden>
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+);
+
+const LANGS: { code: Lang; href: string; flag: string; label: string; name: string }[] = [
+  { code: "it", href: "/",   flag: "🇮🇹", label: "IT", name: "Italiano" },
+  { code: "en", href: "/en", flag: "🇬🇧", label: "EN", name: "English" },
+  { code: "uk", href: "/uk", flag: "🇺🇦", label: "UA", name: "Українська" },
+];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const { lang, t } = useLang();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu  = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    if (!isLangOpen) return;
+
+    const handlePointerDown = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsLangOpen(false);
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isLangOpen]);
+
+  const currentLang = LANGS.find((l) => l.code === lang) ?? LANGS[0];
 
   const scrollTo = (id: string) => {
     closeMenu();
@@ -31,7 +66,7 @@ const Header = () => {
         <div className={styles.inner}>
 
           {/* BRAND */}
-          <Link href={lang === "en" ? "/en" : "/"} className={styles.brand} onClick={closeMenu}>
+          <a href={lang === "en" ? "/en" : lang === "uk" ? "/uk" : "/"} className={styles.brand} onClick={closeMenu}>
             <Image
                 src={logo}
                 alt="Max Voytsekhovskyy"
@@ -44,7 +79,7 @@ const Header = () => {
               <span className={styles.brandName}>Max</span>
               <span className={styles.brandSub}>Voytsekhovskyy</span>
             </div>
-          </Link>
+          </a>
 
           {/* DESKTOP NAV */}
           <nav
@@ -64,21 +99,40 @@ const Header = () => {
           {/* RIGHT SIDE */}
           <div className={styles.right}>
             {/* Language switcher */}
-            <div className={styles.langSwitch} aria-label="Seleziona lingua">
-              <a
-                  href="/"
-                  onClick={closeMenu}
-                  className={`${styles.langBtn} ${lang === "it" ? styles.langActive : ""}`}
+            <div className={styles.langSwitch} ref={langRef}>
+              <button
+                  type="button"
+                  className={styles.langTrigger}
+                  onClick={() => setIsLangOpen((prev) => !prev)}
+                  aria-haspopup="listbox"
+                  aria-expanded={isLangOpen}
               >
-                IT
-              </a>
-              <a
-                  href="/en"
-                  onClick={closeMenu}
-                  className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`}
-              >
-                EN
-              </a>
+                <span className={styles.langFlag}>{currentLang.flag}</span>
+                {currentLang.label}
+                <span className={`${styles.langChevron} ${isLangOpen ? styles.langChevronOpen : ""}`}>
+                  <ChevronIcon />
+                </span>
+              </button>
+
+              {isLangOpen && (
+                  <ul className={styles.langMenu} role="listbox">
+                    {LANGS.map((l) => (
+                        <li key={l.code}>
+                          <a
+                              href={l.href}
+                              role="option"
+                              aria-selected={lang === l.code}
+                              onClick={closeMenu}
+                              className={`${styles.langOption} ${lang === l.code ? styles.langOptionActive : ""}`}
+                          >
+                            <span className={styles.langFlag}>{l.flag}</span>
+                            <span className={styles.langName}>{l.name}</span>
+                            {lang === l.code && <span className={styles.langCheck}>✓</span>}
+                          </a>
+                        </li>
+                    ))}
+                  </ul>
+              )}
             </div>
 
             {/* CTA */}

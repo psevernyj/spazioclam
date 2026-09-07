@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Geist } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,7 +10,7 @@ import { LangProvider, type Lang } from "@/lib/i18n";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
@@ -17,6 +18,15 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: "400",
+  style: ["normal", "italic"],
+});
+
+// Instrument Serif has no Cyrillic glyphs — this covers the Ukrainian version
+// of the display font (see html[lang="uk"] override in globals.css).
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin", "cyrillic"],
+  weight: "600",
   style: ["normal", "italic"],
 });
 
@@ -67,10 +77,10 @@ export default async function RootLayout({
 }>) {
   const hdrs = await headers();
   const pathname = hdrs.get("x-pathname") ?? "/";
-  const lang: Lang = pathname.startsWith("/en") ? "en" : "it";
+  const lang: Lang = pathname.startsWith("/en") ? "en" : pathname.startsWith("/uk") ? "uk" : "it";
 
   return (
-      <html lang={lang} className={`${geistSans.variable} ${instrumentSerif.variable}`}>
+      <html lang={lang} className={`${geistSans.variable} ${instrumentSerif.variable} ${playfairDisplay.variable}`}>
       <body>
       <LangProvider lang={lang}>
         <Header />

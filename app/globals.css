@@ -26,6 +26,11 @@
   /* Typography */
   --display: var(--font-instrument-serif), "Times New Roman", Georgia, serif;
   --sans:    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Instrument Serif has no Cyrillic glyphs — swap in Playfair Display (which does) for the Ukrainian version */
+html[lang="uk"] {
+  --display: var(--font-playfair-display), "Times New Roman", Georgia, serif;
 
   /* Shadows */
   --shadow-sm:  0 2px 6px rgba(0, 0, 0, 0.07);
