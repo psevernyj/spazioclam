@@ -30,7 +30,7 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://spazioclam.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://spazioclam.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
